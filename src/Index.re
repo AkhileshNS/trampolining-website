@@ -1,13 +1,8 @@
-// Entry point
-
 [@bs.val] external document: Js.t({..}) = "document";
 
-// We're using raw DOM manipulations here, to avoid making you read
-// ReasonReact when you might precisely be trying to learn it for the first
-// time through the examples later.
 let style = document##createElement("style");
 document##head##appendChild(style);
-style##innerHTML #= ExampleStyles.style;
+style##innerHTML #= Styles.style;
 
 let makeContainer = text => {
   let container = document##createElement("div");
@@ -27,25 +22,23 @@ let makeContainer = text => {
   content;
 };
 
-// All 4 examples.
 ReactDOMRe.render(
-  <BlinkingGreeting>
-    {React.string("Hello!")}
-  </BlinkingGreeting>,
-  makeContainer("Blinking Greeting"),
+  <TextContainer>
+    {React.string("
+      Hey there!
+      In this website, you can enter your JavaScript function and 
+      we will automatically check if it can be tail-call optimized.
+      If it can, we will do exactly that using Trampolining (https://blog.logrocket.com/using-trampolines-to-manage-large-recursive-loops-in-javascript-d8c9db095ae3/)
+    ")}
+  </TextContainer>,
+  makeContainer("Auto-trampoliner"),
 );
 
 ReactDOMRe.render(
-  <ReducerFromReactJSDocs />,
-  makeContainer("Reducer From ReactJS Docs"),
-);
-
-ReactDOMRe.render(
-  <FetchedDogPictures />,
-  makeContainer("Fetched Dog Pictures"),
-);
-
-ReactDOMRe.render(
-  <ReasonUsingJSUsingReason />,
-  makeContainer("Reason Using JS Using Reason"),
+  <TextContainer>
+    {React.string("
+      This website was built using ReasonML. A language from the ML-family inspired heavily by OCaml.  
+    ")}
+  </TextContainer>,
+  makeContainer("Built using ReasonML"),
 );
