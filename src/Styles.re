@@ -37,4 +37,13 @@ let style = {j|
     padding: 16px;
     border-radius: 0px 0px 12px 12px;
   }
+  textarea {
+    width: calc(100% - 16px);
+    background-color: #1E1E1E;
+    border-radius: 4px;
+    color: #D4D4D4;
+    font-size: 16px;
+    padding: 8px;
+    margin-top: 8px;
+  }
 |j};

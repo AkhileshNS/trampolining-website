@@ -1,26 +1,17 @@
 'use strict';
 
-var Curry = require("bs-platform/lib/js/curry.js");
 var React = require("react");
 
 function TextContainer(Props) {
   var children = Props.children;
-  var match = React.useState((function () {
-          return true;
-        }));
-  var setShow = match[1];
-  React.useEffect((function () {
-          var id = setInterval((function (param) {
-                  return Curry._1(setShow, (function (previousShow) {
-                                return !previousShow;
-                              }));
-                }), 1000);
-          return (function (param) {
-                    clearInterval(id);
-                    return /* () */0;
-                  });
-        }), ([]));
-  return React.createElement("div", undefined, children);
+  var $staropt$star = Props.code;
+  var $staropt$star$1 = Props.rows;
+  var code = $staropt$star !== undefined ? $staropt$star : "";
+  var rows = $staropt$star$1 !== undefined ? $staropt$star$1 : 24;
+  return React.createElement("div", undefined, children, code === "" ? React.createElement("br", undefined) : React.createElement("textarea", {
+                    rows: rows,
+                    value: code
+                  }));
 }
 
 var make = TextContainer;
